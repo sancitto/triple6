@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ELF BAR Planet 25000 - 8 arome tropicale exclusive cu ecran OLED și 25000 de fumuri">
+  <title>ELF BAR Planet 25000 - Triple6 | Vape Shop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #8a2be2;
+      --primary-light: #9d4edd;
+      --primary-dark: #7b2cbf;
+      --accent: #ff6d00;
+      --bg: #0f051d;
+      --card-bg: #1a1030;
+      --text: #f8f9fa;
+      --text-light: #e9ecef;
+      --text-muted: #adb5bd;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* Header */
+    .product-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .back-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .back-link:hover {
+      color: var(--primary);
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    /* Gallery */
+    .gallery-container {
+      position: relative;
+    }
+
+    .main-image {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 16px;
+      aspect-ratio: 1/1;
+      object-fit: contain;
+      background: var(--card-bg);
+      padding: 1rem;
+      box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .main-image:hover {
+      transform: scale(1.02);
+    }
+
+    .thumbnail-container {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .thumbnail {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.3s;
+    }
+
+    .thumbnail:hover, 
+    .thumbnail.active {
+      border-color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    /* Product Info */
+    .product-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .product-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      color: var(--primary);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .highlight-badge {
+      background: var(--accent);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+
+    .price-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .current-price {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .old-price {
+      font-size: 1.2rem;
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
+    .bulk-price {
+      color: var(--primary);
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+
+    .product-description {
+      color: var(--text-light);
+      line-height: 1.7;
+      padding: 1rem 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Selector */
+    .variant-selector {
+      margin: 1.5rem 0;
+    }
+
+    .variant-label {
+      display: block;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+      color: var(--text-light);
+    }
+
+    .variant-dropdown {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      border: none;
+      background: var(--card-bg);
+      color: var(--text);
+      font-size: 1rem;
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238a2be2'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1rem;
+    }
+
+    .variant-dropdown:focus {
+      outline: 2px solid var(--primary);
+    }
+
+    /* CTA Button */
+    .cta-button {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(138, 43, 226, 0.6);
+    }
+
+    /* Features */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .feature-icon {
+      width: 24px;
+      height: 24px;
+      color: var(--primary);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .product-title {
+        font-size: 1.6rem;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* Added product card styles */
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      text-decoration: none;
+      color: var(--text);
+      box-shadow: 0 8px 20px rgba(138, 43, 226, 0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+      max-width: 300px;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(138, 43, 226, 0.3);
+    }
+    .product-card-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      background: var(--card-bg);
+      padding: 1rem;
+    }
+    .product-card-info {
+      padding: 1rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .product-card-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin-bottom: 0.2rem;
+    }
+    .product-card-price {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--accent);
+    }
+    .product-card-price .old-price {
+      font-weight: 400;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      margin-left: 0.5rem;
+    }
+    .product-card-description {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-top: 0.3rem;
+    }
+    .product-badge {
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      align-self: flex-start;
+      margin-top: 0.5rem;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="product-header">
+      <a href="products.html" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Înapoi la produse
+      </a>
+    </div>
+
+    <div class="product-grid">
+      <div class="gallery-container">
+        <img id="mainProductImage" class="main-image" src="assets/elfbar-planet-baja.png" alt="ELF BAR Planet 25000 - Baja Splash">
+        <div class="thumbnail-container">
+          <img class="thumbnail active" src="assets/elfbar-planet-baja.png" alt="Baja Splash" onclick="changeImage(this.src, 'Baja Splash 🌈')">
+          <img class="thumbnail" src="assets/elfbar-planet-cranberry.png" alt="Cranberry Orange" onclick="changeImage(this.src, 'Cranberry Orange Baja Splash 🫐🍊')">
+          <img class="thumbnail" src="assets/elfbar-planet-watermelon.png" alt="Watermelon Cherry" onclick="changeImage(this.src, 'Watermelon Cherry 🍉🍒')">
+          <img class="thumbnail" src="assets/elfbar-planet-pineapple.png" alt="Pineapple Watermelon" onclick="changeImage(this.src, 'Pineapple Watermelon 🍍🍉')">
+        </div>
+      </div>
+
+      <div class="product-info">
+        <div>
+          <h1 class="product-title">ELF BAR Planet 25000</h1>
+          <span class="highlight-badge">🔥 25000 fumuri + ecran OLED</span>
+        </div>
+
+        <div class="price-container">
+          <span class="current-price">429 MDL</span>
+          <span class="old-price">499 MDL</span>
+        </div>
+        <p class="bulk-price">De la 2 bucăți: <strong>399 MDL/buc</strong></p>
+
+        <p class="product-description">
+          Seria Planet aduce 8 arome tropicale unice într-un dispozitiv cu design cosmic. 
+          Ecran OLED pentru monitorizare baterie și lichid, performanță premium.
+        </p>
+
+        <div class="variant-selector">
+          <label for="flavor" class="variant-label">Selectează aroma:</label>
+          <select id="flavor" class="variant-dropdown" onchange="updateMainImage()">
+            <option value="Baja Splash" data-image="assets/elfbar-planet-baja.png">Baja Splash 🌈</option>
+            <option value="Cranberry Orange Baja Splash" data-image="assets/elfbar-planet-cranberry.png">Cranberry Orange Baja Splash 🫐🍊</option>
+            <option value="Watermelon Cherry" data-image="assets/elfbar-planet-watermelon.png">Watermelon Cherry 🍉🍒</option>
+            <option value="Pineapple Watermelon" data-image="assets/elfbar-planet-pineapple.png">Pineapple Watermelon 🍍🍉</option>
+            <option value="Grapefruit Green Tea" data-image="assets/elfbar-planet-grapefruit.png">Grapefruit Green Tea 🍊🍵</option>
+            <option value="Pineapple Passion Fruit Baja" data-image="assets/elfbar-planet-passion.png">Pineapple Passion Fruit Baja 🍍🥭</option>
+            <option value="Tropical Rainbow Blast" data-image="assets/elfbar-planet-rainbow.png">Tropical Rainbow Blast 🌴🌈</option>
+            <option value="Lemon Lime" data-image="assets/elfbar-planet-lemon.png">Lemon Lime 🍋</option>
+          </select>
+        </div>
+
+        <button class="cta-button" onclick="window.location.href='checkout.html'">
+          Comandă acum - 429 MDL
+        </button>
+
+        <div class="features-grid">
+          <div class="feature-item">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+            <span>25000 de fumuri</span>
+          </div>
+          <div class="feature-item">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/>
+            </svg>
+            <span>Ecran OLED clar</span>
+          </div>
+          <div class="feature-item">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
+            </svg>
+            <span>8 arome tropicale</span>
+          </div>
+          <div class="feature-item">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span>Design ergonomic</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Added product card in a product offers section -->
+    <section id="oferte" style="margin-top: 3rem;">
+      <h2 style="color: var(--primary); font-family: 'Orbitron', sans-serif; margin-bottom: 1rem;">Oferte Speciale</h2>
+      <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+        <a href="product-elfbar-planet25000.html" class="product-card">
+          <div class="product-card-image">
+            <img src="assets/elfbar-planet-baja.png" alt="ELF BAR Planet 25000">
+          </div>
+          <div class="product-card-info">
+            <h3 class="product-card-title">ELF BAR Planet 25000</h3>
+            <p class="product-card-price">429 MDL <span class="old-price">499 MDL</span></p>
+            <p class="product-card-description">8 arome tropicale, 25000 fumuri și ecran OLED.</p>
+            <span class="product-badge">🔥 Ofertă</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Main product grid with Ice King and Planet 25000 (for visual parity with main grid on products.html) -->
+    <section class="products-grid" style="display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 3rem;">
+      <!-- Example: Ice King product card -->
+      <a href="product-elfbar-iceking.html" class="product-card">
+        <div class="product-card-image">
+          <img src="assets/elfbar-iceking.png" alt="ELF BAR Ice King">
+        </div>
+        <div class="product-card-info">
+          <h3 class="product-card-title">ELF BAR Ice King</h3>
+          <p class="product-card-price">399 MDL <span class="old-price">449 MDL</span></p>
+          <p class="product-card-description">Aromă intensă, până la 20000 fumuri.</p>
+          <span class="product-badge">❄️ Bestseller</span>
+        </div>
+      </a>
+      <!-- Inserted ELF BAR Planet 25000 next to Ice King -->
+      <a href="product-elfbar-planet25000.html" class="product-card">
+        <div class="product-card-image">
+          <img src="assets/elfbar-planet-baja.png" alt="ELF BAR Planet 25000">
+        </div>
+        <div class="product-card-info">
+          <h3 class="product-card-title">ELF BAR Planet 25000</h3>
+          <p class="product-card-price">429 MDL <span class="old-price">499 MDL</span></p>
+          <p class="product-card-description">8 arome tropicale, 25000 fumuri și ecran OLED.</p>
+          <span class="product-badge">🔥 Ofertă</span>
+        </div>
+      </a>
+    </section>
+  </div>
+
+  <script>
+    function changeImage(src, flavorName) {
+      document.getElementById('mainProductImage').src = src;
+      
+      document.querySelectorAll('.thumbnail').forEach(thumb => {
+        thumb.classList.remove('active');
+        if (thumb.src.includes(src.split('/').pop())) { // Match partial filename
+          thumb.classList.add('active');
+        }
+      });
+      
+      const dropdown = document.getElementById('flavor');
+      const options = Array.from(dropdown.options);
+      const matchingOption = options.find(opt => opt.dataset.image === src);
+      
+      if (matchingOption) dropdown.value = matchingOption.value;
+    }
+
+    function updateMainImage() {
+      const dropdown = document.getElementById('flavor');
+      const selectedOption = dropdown.options[dropdown.selectedIndex];
+      const imageSrc = selectedOption.dataset.image;
+      
+      document.getElementById('mainProductImage').src = imageSrc;
+      
+      document.querySelectorAll('.thumbnail').forEach(thumb => {
+        thumb.classList.remove('active');
+        if (thumb.src.includes(imageSrc.split('/').pop())) {
+          thumb.classList.add('active');
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const thumbnails = document.querySelectorAll('.thumbnail');
+      thumbnails.forEach(thumb => {
+        new Image().src = thumb.src;
+      });
+    });
+  </script>
+</body>
+</html>
