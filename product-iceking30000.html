@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ELF BAR Ice King 30000 - Dispozitiv premium cu aromă intensă și autonomie extinsă">
-  <title>ELF BAR Ice King 30000 - Triple6 | Vape Shop</title>
+  <meta name="description" content="Elfbar Ice King 30000 - Dispozitiv premium cu 30000 de fumuri și aromă îndelungată">
+  <title>Elfbar Ice King 30000 - Triple6 | Vape Shop</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Păstrăm exact același CSS ca la Elfbar Combo */
     :root {
       --primary: #8a2be2;
       --primary-light: #9d4edd;
@@ -38,7 +37,324 @@
       flex-direction: column;
     }
 
-    /* ... (restul CSS-ului rămâne identic) ... */
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* Header */
+    .product-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .back-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .back-link:hover {
+      color: var(--primary);
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    /* Gallery */
+    .gallery-container {
+      position: relative;
+    }
+
+    .main-image {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 16px;
+      aspect-ratio: 1/1;
+      object-fit: contain;
+      background: var(--card-bg);
+      padding: 1rem;
+      box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .main-image:hover {
+      transform: scale(1.02);
+    }
+
+    .thumbnail-container {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .thumbnail {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.3s;
+    }
+
+    .thumbnail:hover, 
+    .thumbnail.active {
+      border-color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    /* Product Info */
+    .product-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .product-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      color: var(--primary);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-subtitle {
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .price-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .current-price {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .old-price {
+      font-size: 1.2rem;
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
+    .discount-badge {
+      background: var(--accent);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .product-description {
+      color: var(--text-light);
+      line-height: 1.7;
+      padding: 1rem 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Selector */
+    .variant-selector {
+      margin: 1.5rem 0;
+    }
+
+    .variant-label {
+      display: block;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+      color: var(--text-light);
+    }
+
+    .variant-dropdown {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      border: none;
+      background: var(--card-bg);
+      color: var(--text);
+      font-size: 1rem;
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238a2be2'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1rem;
+    }
+
+    .variant-dropdown:focus {
+      outline: 2px solid var(--primary);
+    }
+
+    /* CTA Button */
+    .cta-button {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(138, 43, 226, 0.6);
+    }
+
+    /* Features */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .feature-icon {
+      width: 24px;
+      height: 24px;
+      color: var(--primary);
+    }
+
+    /* Related Products */
+    .related-section {
+      margin-top: 4rem;
+    }
+
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+
+    .related-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .related-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .related-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .related-info {
+      padding: 1.2rem;
+    }
+
+    .related-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .related-price {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--card-bg);
+      padding: 3rem 1.5rem;
+      margin-top: 4rem;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1.5rem 0;
+    }
+
+    .footer-link {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .footer-link:hover {
+      color: var(--primary);
+    }
+
+    .copyright {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .product-title {
+        font-size: 1.6rem;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .thumbnail-container {
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -54,18 +370,18 @@
 
     <div class="product-grid">
       <div class="gallery-container">
-        <img id="mainProductImage" class="main-image" src="assets/iceking-cherry.png" alt="ELF BAR Ice King 30000">
+        <img id="mainProductImage" class="main-image" src="assets/iceking-cherry.png" alt="Elfbar Ice King 30000">
         <div class="thumbnail-container">
-          <img class="thumbnail active" src="assets/iceking-cherry.png" alt="Cherry Cranberry Pomegranate" onclick="changeImage(this.src)">
-          <img class="thumbnail" src="assets/iceking-grape.png" alt="Grape Ice" onclick="changeImage(this.src)">
-          <img class="thumbnail" src="assets/iceking-apple.png" alt="Apple Peach" onclick="changeImage(this.src)">
+          <img class="thumbnail active" src="assets/iceking-cherry.png" alt="Cherry Ice" onclick="changeImage(this.src)">
+          <img class="thumbnail" src="assets/iceking-mango.png" alt="Mango Ice" onclick="changeImage(this.src)">
           <img class="thumbnail" src="assets/iceking-blueberry.png" alt="Blueberry Ice" onclick="changeImage(this.src)">
+          <img class="thumbnail" src="assets/iceking-strawberry.png" alt="Strawberry Ice" onclick="changeImage(this.src)">
         </div>
       </div>
 
       <div class="product-info">
         <div>
-          <h1 class="product-title">ELF BAR Ice King 30000</h1>
+          <h1 class="product-title">Elfbar Ice King 30000</h1>
           <p class="product-subtitle">Disposable Vape Device</p>
         </div>
 
@@ -76,22 +392,22 @@
         </div>
 
         <p class="product-description">
-          ELF BAR Ice King 30000 este versiunea premium cu autonomie extinsă, oferind până la 30000 de fumuri. 
-          Cu un design elegant și arome reci de înaltă calitate, este perfect pentru cei care doresc o experiență 
-          de vaping de durată cu gusturi intense și răcoritoare.
+          Elfbar Ice King 30000 este versiunea premium a seriei Ice, oferind până la 30000 de fumuri intense cu gust îndelungat. 
+          Are o capacitate mare de e-lichid (12ml) și conținut ridicat de nicotină (50mg/ml). 
+          Design ergonomic cu iluminare LED la utilizare.
         </p>
 
         <div class="variant-selector">
           <label for="flavor" class="variant-label">Selectează aroma:</label>
           <select id="flavor" class="variant-dropdown" onchange="updateMainImage()">
-            <option value="Cherry Cranberry Pomegranate" data-image="assets/iceking-cherry.png">Cherry Cranberry Pomegranate 🍒🫐</option>
-            <option value="Grape Ice" data-image="assets/iceking-grape.png">Grape Ice 🍇🧊</option>
-            <option value="Apple Peach" data-image="assets/iceking-apple.png">Apple Peach 🍎🍑</option>
+            <option value="Cherry Ice" data-image="assets/iceking-cherry.png">Cherry Ice 🍒🧊</option>
+            <option value="Mango Ice" data-image="assets/iceking-mango.png">Mango Ice 🥭🧊</option>
             <option value="Blueberry Ice" data-image="assets/iceking-blueberry.png">Blueberry Ice 🫐🧊</option>
+            <option value="Strawberry Ice" data-image="assets/iceking-strawberry.png">Strawberry Ice 🍓🧊</option>
           </select>
         </div>
 
-        <button class="cta-button" onclick="window.location.href='checkout.html?product=ELF%20BAR%20Ice%20King%2030000&flavor=Cherry%20Cranberry%20Pomegranate&price=599'">
+        <button class="cta-button" onclick="window.location.href='checkout.html'">
           Comandă acum - 599 MDL
         </button>
 
@@ -106,19 +422,19 @@
             <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/>
             </svg>
-            <span>Reîncărcare USB-C</span>
+            <span>12ml e-lichid</span>
           </div>
           <div class="feature-item">
             <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
             </svg>
-            <span>6 arome disponibile</span>
+            <span>50mg/ml nicotină</span>
           </div>
           <div class="feature-item">
             <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
             </svg>
-            <span>Pentru adulți 18+</span>
+            <span>LED indicator</span>
           </div>
         </div>
       </div>
@@ -127,32 +443,25 @@
     <div class="related-section">
       <h2 class="section-title">Produse similare</h2>
       <div class="related-grid">
-        <a href="product-elfbar-combo.html" class="related-card">
-          <img src="assets/elfbar-combo.png" alt="ELF BAR Combo 25000" class="related-image" loading="lazy">
+        <a href="product-elfbar25000.html" class="related-card">
+          <img src="assets/elfbar-grape.png" alt="ELF BAR Combo 25000" class="related-image" loading="lazy">
           <div class="related-info">
             <h3 class="related-title">ELF BAR Combo 25000</h3>
             <p class="related-price">399 MDL</p>
           </div>
         </a>
-        <a href="product-elfbar-1500.html" class="related-card">
-          <img src="assets/elfbar-1500.png" alt="ELF BAR 1500" class="related-image" loading="lazy">
+        <a href="product-elfbar1500.html" class="related-card">
+          <img src="assets/elf6-removebg-preview.png" alt="ELF BAR 1500" class="related-image" loading="lazy">
           <div class="related-info">
             <h3 class="related-title">ELF BAR 1500</h3>
             <p class="related-price">249 MDL</p>
           </div>
         </a>
-        <a href="product-lost-mary.html" class="related-card">
-          <img src="assets/lost-mary.png" alt="Lost Mary" class="related-image" loading="lazy">
+        <a href="product-xrosmini.html" class="related-card">
+          <img src="assets/xros-removebg-preview.png" alt="XROS Mini" class="related-image" loading="lazy">
           <div class="related-info">
-            <h3 class="related-title">Lost Mary</h3>
-            <p class="related-price">349 MDL</p>
-          </div>
-        </a>
-        <a href="product-funky-lands.html" class="related-card">
-          <img src="assets/funky-lands.png" alt="Funky Lands" class="related-image" loading="lazy">
-          <div class="related-info">
-            <h3 class="related-title">Funky Lands</h3>
-            <p class="related-price">449 MDL</p>
+            <h3 class="related-title">XROS Mini</h3>
+            <p class="related-price">379 MDL</p>
           </div>
         </a>
       </div>
@@ -172,7 +481,7 @@
   </footer>
 
   <script>
-    // Funcții JavaScript identice
+    // Funcții identice cu cele din product-elfbar25000.html
     function changeImage(src) {
       const mainImg = document.getElementById('mainProductImage');
       mainImg.src = src;
@@ -190,7 +499,6 @@
       
       if (matchingOption) {
         dropdown.value = matchingOption.value;
-        updateCheckoutLink();
       }
     }
 
@@ -207,20 +515,6 @@
           thumb.classList.add('active');
         }
       });
-      
-      updateCheckoutLink();
-    }
-
-    function updateCheckoutLink() {
-      const dropdown = document.getElementById('flavor');
-      const selectedOption = dropdown.options[dropdown.selectedIndex];
-      const flavor = encodeURIComponent(selectedOption.value);
-      const productName = encodeURIComponent(document.querySelector('.product-title').textContent);
-      const price = document.querySelector('.current-price').textContent.replace(' MDL', '');
-      
-      document.querySelector('.cta-button').onclick = function() {
-        window.location.href = `checkout.html?product=${productName}&flavor=${flavor}&price=${price}`;
-      };
     }
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -228,7 +522,6 @@
       thumbnails.forEach(thumb => {
         new Image().src = thumb.src;
       });
-      updateCheckoutLink();
     });
   </script>
 </body>
