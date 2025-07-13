@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Triple6 | Magazin Premium Vape</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #8a2be2;
+      --primary-light: #9d4edd;
+      --primary-dark: #7b2cbf;
+      --accent: #ff6d00;
+      --bg: #0f051d;
+      --card-bg: #1a1030;
+      --text: #f8f9fa;
+      --text-light: #e9ecef;
+      --text-muted: #adb5bd;
+      --success: #00c853;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    .header {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-bottom: 2px solid var(--primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+    }
+
+    .nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-link {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(rgba(15, 5, 29, 0.9), rgba(15, 5, 29, 0.9)), 
+                  url('assets/hero-bg.jpg') center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      text-shadow: 0 0 15px rgba(138, 43, 226, 0.6);
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      box-shadow: 0 5px 20px rgba(138, 43, 226, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(138, 43, 226, 0.6);
+    }
+
+    /* Promo Banner */
+    .promo-banner {
+      background: var(--card-bg);
+      color: var(--primary);
+      padding: 1.5rem 0;
+      overflow: hidden;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+      border-top: 1px solid rgba(138, 43, 226, 0.2);
+      border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+    }
+
+    /* Sections */
+    .section {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 3rem;
+      text-align: center;
+      text-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
+      transition: all 0.3s;
+      border: 1px solid rgba(138, 43, 226, 0.1);
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(138, 43, 226, 0.3);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .product-info {
+      padding: 1.5rem;
+    }
+
+    .product-name {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-light);
+    }
+
+    .product-price {
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .product-price del {
+      color: var(--text-muted);
+      margin-right: 0.5rem;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 0.9rem;
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* How to Order */
+    .steps {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .step-number {
+      background: var(--primary);
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      flex-shrink: 0;
+      font-weight: 700;
+    }
+
+    .step-text {
+      flex: 1;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--card-bg);
+      padding: 3rem 0;
+      margin-top: 4rem;
+      border-top: 2px solid var(--primary);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+      color: var(--text-muted);
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-link:hover {
+      color: var(--primary);
+    }
+
+    .copyright {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Animations */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .nav {
+        gap: 1rem;
+      }
+      
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">TRIPLE6</a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Principală</a>
+        <a href="#oferte" class="nav-link">Oferte</a>
+        <a href="products.html" class="nav-link">Produse</a>
+        <a href="#cum-comand" class="nav-link">Cum comand?</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Aroma Perfectă cu Stil Neon</h1>
+      <p class="hero-subtitle">Descoperă cele mai tari puff-uri și lichide de pe piață</p>
+      <a href="#oferte" class="btn btn-primary">Vezi ofertele</a>
+    </div>
+  </section>
+
+  <div class="promo-banner">
+    <div class="container">
+      <span>✨ Livrare gratuită pentru comenzi peste 999 MDL ✨</span>
+    </div>
+  </div>
+
+  <section id="oferte" class="section">
+    <div class="container">
+      <h2 class="section-title">Oferte Speciale</h2>
+      <div class="product-grid">
+        <div class="product-card floating">
+          <img src="assets/elf-bar-combo-disposable-vape-25000-puffs-blackcurrant-raspberry-grape-removebg-preview.png" alt="ELF BAR Combo 25000" class="product-image">
+          <div class="product-info">
+            <h3 class="product-name">ELF BAR Combo 25000</h3>
+            <p class="product-price"><del>499 MDL</del> <strong>399 MDL</strong></p>
+            <a href="product-elfbar25000.html" class="btn btn-secondary">Vezi detalii</a>
+          </div>
+       <div class="product-card floating" style="animation-delay: 0.5s;">
+  <img src="assets/iceking-cherry.png" alt="Elfbar Ice King 30000" class="product-image">
+  <div class="product-info">
+    <h3 class="product-name">Elfbar Ice King 30000</h3>
+    <p class="product-price"><del>649 MDL</del> <strong>599 MDL</strong></p>
+    <a href="product-iceking30000.html" class="btn btn-secondary">Vezi detalii</a>
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="produse" class="section">
+    <div class="container">
+      <h2 class="section-title">Produse Populare</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="assets/elf6-removebg-preview.png" alt="ELF BAR 1500" class="product-image">
+          <div class="product-info">
+            <h3 class="product-name">ELF BAR 1500</h3>
+            <p class="product-price"><strong>249 MDL</strong></p>
+            <a href="#" class="btn btn-secondary">Cumpără acum</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="assets/photo_2025-06-23_16.37.29-removebg-preview.png" alt="Lichid ELFLIQ 30ml" class="product-image">
+          <div class="product-info">
+            <h3 class="product-name">Lichid ELFLIQ 30ml</h3>
+            <p class="product-price"><strong>249 MDL</strong></p>
+            <a href="#" class="btn btn-secondary">Cumpără acum</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="assets/xros-removebg-preview.png" alt="XROS MINI" class="product-image">
+          <div class="product-info">
+            <h3 class="product-name">XROS MINI</h3>
+            <p class="product-price"><strong>379 MDL</strong></p>
+            <a href="#" class="btn btn-secondary">Cumpără acum</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cum-comand" class="section">
+    <div class="container">
+      <h2 class="section-title">Cum Comand?</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-text">Selectează produsul dorit din magazinul nostru online</div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-text">Adaugă în coș și completează datele de livrare</div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-text">Noi te contactăm telefonic pentru confirmare</div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-text">Livrare rapidă în 1-2 zile lucrătoare</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-links">
+        <a href="products.html" class="footer-link">Produse</a>
+        <a href="#cum-comand" class="footer-link">Cum comand?</a>
+        <a href="#contact" class="footer-link">Contact</a>
+        <a href="termeni.html" class="footer-link">Termeni și condiții</a>
+      </div>
+      <p class="copyright">© 2025 TRIPLE6. Toate drepturile rezervate.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Animație pentru elementele cu clasa floating
+    document.querySelectorAll('.floating').forEach((el, index) => {
+      el.style.animationDelay = `${index * 0.2}s`;
+    });
+
+    // Smooth scrolling pentru link-uri interne
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>

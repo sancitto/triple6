@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produse - Triple6.md</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #0d0d0d;
+    color: #f5f5f5;
+  }
+
+  .header {
+    background: #1a1a1a;
+    padding: 1rem;
+    border-bottom: 2px solid #bf5fff;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #bf5fff;
+    text-decoration: none;
+    text-shadow: 0 0 10px #bf5fff, 0 0 20px #bf5fff;
+    animation: neonLogo 1.5s ease-in-out infinite alternate;
+  }
+
+  .nav a {
+    color: #f5f5f5;
+    text-decoration: none;
+  }
+
+  .nav a:hover {
+    color: #bf5fff;
+  }
+
+  .products-wrapper {
+    padding: 2rem 0;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .product-card {
+    background: #1a1a1a;
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(191, 95, 255, 0.1);
+  }
+
+  .product-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+  }
+
+  .btn-secondary {
+    display: inline-block;
+    background: #bf5fff;
+    color: #0d0d0d;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 0.5rem;
+    font-weight: bold;
+  }
+
+  .products-wrapper h2 {
+    text-align: center;
+    color: #bf5fff;
+  }
+
+  .footer {
+    background: #1a1a1a;
+    padding: 2rem 1rem;
+    text-align: center;
+    border-top: 2px solid #bf5fff;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  @keyframes neonLogo {
+    from {
+      text-shadow: 0 0 10px #bf5fff, 0 0 20px #bf5fff;
+    }
+    to {
+      text-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+    }
+  }
+
+  .menu-icon {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  #menu-toggle {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .menu-icon {
+      display: block;
+      position: absolute;
+      right: 1.5rem;
+      top: 1.2rem;
+    }
+
+    .nav {
+      display: none;
+      flex-direction: column;
+      background: #0d0d0d;
+      padding: 1rem;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 100%;
+      z-index: 10;
+    }
+
+    #menu-toggle:checked + .menu-icon + .nav {
+      display: flex;
+    }
+  }
+
+  .neon-bar {
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
+    animation: neon-glow 4s linear infinite;
+  }
+
+  @keyframes neon-glow {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  </style>
+</head>
+<body>
+  <div class="neon-bar"></div>
+  <header class="header">
+    <div class="container">
+      <div class="logo"><a href="index.html">Triple6</a></div>
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon">&#9776;</label>
+      <nav class="nav">
+        <a href="index.html">Principală</a>
+        <a href="index.html#oferte">Oferte</a>
+        <a href="index.html#produse">Produse</a>
+        <a href="index.html#cum-comand">Cum comand?</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 style="text-align: center; color: #bf5fff;">Categorii Produse</h1>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="assets/photo_2025-06-23_16.37.29-removebg-preview.png" alt="Lichide">
+        <h3>Lichide</h3>
+        <a href="#lichide" class="btn-secondary">Vezi Produsele</a>
+      </div>
+      <div class="product-card">
+        <img src="assets/elf6-removebg-preview.png" alt="Puff-uri">
+        <h3>Puff-uri</h3>
+        <a href="#puffuri" class="btn-secondary">Vezi Produsele</a>
+      </div>
+      <div class="product-card">
+        <img src="assets/xros-removebg-preview.png" alt="Pod Sisteme">
+        <h3>Pod Sisteme</h3>
+        <a href="#podsisteme" class="btn-secondary">Vezi Produsele</a>
+      </div>
+      <div class="product-card">
+        <img src="assets/accessory-placeholder.png" alt="Accesorii">
+        <h3>Accesorii</h3>
+        <a href="#accesorii" class="btn-secondary">Vezi Produsele</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-links">
+      <a href="index.html#produse">Produse</a>
+      <a href="index.html#cum-comand">Cum comand?</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <p style="text-align:center; padding-bottom: 1rem;">&copy; 2025 Triple6. Toate drepturile rezervate.</p>
+  </footer>
+</body>
+</html>

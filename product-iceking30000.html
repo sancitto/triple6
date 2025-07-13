@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ELF BAR Ice King 30000 - Dispozitiv premium cu aromă intensă și autonomie extinsă">
+  <title>ELF BAR Ice King 30000 - Triple6 | Vape Shop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Păstrăm exact același CSS ca la Elfbar Combo */
+    :root {
+      --primary: #8a2be2;
+      --primary-light: #9d4edd;
+      --primary-dark: #7b2cbf;
+      --accent: #ff6d00;
+      --bg: #0f051d;
+      --card-bg: #1a1030;
+      --text: #f8f9fa;
+      --text-light: #e9ecef;
+      --text-muted: #adb5bd;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ... (restul CSS-ului rămâne identic) ... */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="product-header">
+      <a href="products.html" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Înapoi la produse
+      </a>
+    </div>
+
+    <div class="product-grid">
+      <div class="gallery-container">
+        <img id="mainProductImage" class="main-image" src="assets/iceking-cherry.png" alt="ELF BAR Ice King 30000">
+        <div class="thumbnail-container">
+          <img class="thumbnail active" src="assets/iceking-cherry.png" alt="Cherry Cranberry Pomegranate" onclick="changeImage(this.src)">
+          <img class="thumbnail" src="assets/iceking-grape.png" alt="Grape Ice" onclick="changeImage(this.src)">
+          <img class="thumbnail" src="assets/iceking-apple.png" alt="Apple Peach" onclick="changeImage(this.src)">
+          <img class="thumbnail" src="assets/iceking-blueberry.png" alt="Blueberry Ice" onclick="changeImage(this.src)">
+        </div>
+      </div>
+
+      <div class="product-info">
+        <div>
+          <h1 class="product-title">ELF BAR Ice King 30000</h1>
+          <p class="product-subtitle">Disposable Vape Device</p>
+        </div>
+
+        <div class="price-container">
+          <span class="current-price">599 MDL</span>
+          <span class="old-price">649 MDL</span>
+          <span class="discount-badge">-8%</span>
+        </div>
+
+        <p class="product-description">
+          ELF BAR Ice King 30000 este versiunea premium cu autonomie extinsă, oferind până la 30000 de fumuri. 
+          Cu un design elegant și arome reci de înaltă calitate, este perfect pentru cei care doresc o experiență 
+          de vaping de durată cu gusturi intense și răcoritoare.
+        </p>
+
+        <div class="variant-selector">
+          <label for="flavor" class="variant-label">Selectează aroma:</label>
+          <select id="flavor" class="variant-dropdown" onchange="updateMainImage()">
+            <option value="Cherry Cranberry Pomegranate" data-image="assets/iceking-cherry.png">Cherry Cranberry Pomegranate 🍒🫐</option>
+            <option value="Grape Ice" data-image="assets/iceking-grape.png">Grape Ice 🍇🧊</option>
+            <option value="Apple Peach" data-image="assets/iceking-apple.png">Apple Peach 🍎🍑</option>
+            <option value="Blueberry Ice" data-image="assets/iceking-blueberry.png">Blueberry Ice 🫐🧊</option>
+          </select>
+        </div>
+
+        <button class="cta-button" onclick="window.location.href='checkout.html?product=ELF%20BAR%20Ice%20King%2030000&flavor=Cherry%20Cranberry%20Pomegranate&price=599'">
+          Comandă acum - 599 MDL
+        </button>
+
+        <div class="features-grid">
+          <div class="feature-item">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+            <span>30000 de fumuri</span>
+          </div>
+          <div class="feature-item">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/>
+            </svg>
+            <span>Reîncărcare USB-C</span>
+          </div>
+          <div class="feature-item">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
+            </svg>
+            <span>6 arome disponibile</span>
+          </div>
+          <div class="feature-item">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span>Pentru adulți 18+</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="related-section">
+      <h2 class="section-title">Produse similare</h2>
+      <div class="related-grid">
+        <a href="product-elfbar-combo.html" class="related-card">
+          <img src="assets/elfbar-combo.png" alt="ELF BAR Combo 25000" class="related-image" loading="lazy">
+          <div class="related-info">
+            <h3 class="related-title">ELF BAR Combo 25000</h3>
+            <p class="related-price">399 MDL</p>
+          </div>
+        </a>
+        <a href="product-elfbar-1500.html" class="related-card">
+          <img src="assets/elfbar-1500.png" alt="ELF BAR 1500" class="related-image" loading="lazy">
+          <div class="related-info">
+            <h3 class="related-title">ELF BAR 1500</h3>
+            <p class="related-price">249 MDL</p>
+          </div>
+        </a>
+        <a href="product-lost-mary.html" class="related-card">
+          <img src="assets/lost-mary.png" alt="Lost Mary" class="related-image" loading="lazy">
+          <div class="related-info">
+            <h3 class="related-title">Lost Mary</h3>
+            <p class="related-price">349 MDL</p>
+          </div>
+        </a>
+        <a href="product-funky-lands.html" class="related-card">
+          <img src="assets/funky-lands.png" alt="Funky Lands" class="related-image" loading="lazy">
+          <div class="related-info">
+            <h3 class="related-title">Funky Lands</h3>
+            <p class="related-price">449 MDL</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="contact.html" class="footer-link">Contact</a>
+        <a href="termeni.html" class="footer-link">Termeni și condiții</a>
+        <a href="politica.html" class="footer-link">Politica de confidențialitate</a>
+        <a href="livrare.html" class="footer-link">Livrare și returnări</a>
+      </div>
+      <p class="copyright">© 2025 Triple6 Vape Shop. Toate drepturile rezervate.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Funcții JavaScript identice
+    function changeImage(src) {
+      const mainImg = document.getElementById('mainProductImage');
+      mainImg.src = src;
+      
+      document.querySelectorAll('.thumbnail').forEach(thumb => {
+        thumb.classList.remove('active');
+        if (thumb.src === src) {
+          thumb.classList.add('active');
+        }
+      });
+      
+      const dropdown = document.getElementById('flavor');
+      const options = Array.from(dropdown.options);
+      const matchingOption = options.find(opt => opt.dataset.image === src);
+      
+      if (matchingOption) {
+        dropdown.value = matchingOption.value;
+        updateCheckoutLink();
+      }
+    }
+
+    function updateMainImage() {
+      const dropdown = document.getElementById('flavor');
+      const selectedOption = dropdown.options[dropdown.selectedIndex];
+      const imageSrc = selectedOption.dataset.image;
+      
+      document.getElementById('mainProductImage').src = imageSrc;
+      
+      document.querySelectorAll('.thumbnail').forEach(thumb => {
+        thumb.classList.remove('active');
+        if (thumb.src === imageSrc) {
+          thumb.classList.add('active');
+        }
+      });
+      
+      updateCheckoutLink();
+    }
+
+    function updateCheckoutLink() {
+      const dropdown = document.getElementById('flavor');
+      const selectedOption = dropdown.options[dropdown.selectedIndex];
+      const flavor = encodeURIComponent(selectedOption.value);
+      const productName = encodeURIComponent(document.querySelector('.product-title').textContent);
+      const price = document.querySelector('.current-price').textContent.replace(' MDL', '');
+      
+      document.querySelector('.cta-button').onclick = function() {
+        window.location.href = `checkout.html?product=${productName}&flavor=${flavor}&price=${price}`;
+      };
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const thumbnails = document.querySelectorAll('.thumbnail');
+      thumbnails.forEach(thumb => {
+        new Image().src = thumb.src;
+      });
+      updateCheckoutLink();
+    });
+  </script>
+</body>
+</html>
