@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ELF BAR Combo 25000 - Dispozitiv premium de unică folosință cu aromă intensă">
+  <meta name="description" content="ELF BAR Combo 25000 - 10 arome premium cu ecran digital și 25000 de fumuri">
   <title>ELF BAR Combo 25000 - Triple6 | Vape Shop</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,12 +37,6 @@
       flex-direction: column;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
     .container {
       max-width: 1280px;
       margin: 0 auto;
@@ -63,6 +57,7 @@
       gap: 0.5rem;
       color: var(--text-muted);
       font-weight: 500;
+      text-decoration: none;
     }
 
     .back-link:hover {
@@ -103,6 +98,7 @@
       gap: 0.8rem;
       margin-top: 1.5rem;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
     .thumbnail {
@@ -136,10 +132,15 @@
       margin-bottom: 0.5rem;
     }
 
-    .product-subtitle {
-      color: var(--text-muted);
-      font-weight: 500;
-      font-size: 1rem;
+    .highlight-badge {
+      background: var(--accent);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 0.5rem;
     }
 
     .price-container {
@@ -161,13 +162,10 @@
       color: var(--text-muted);
     }
 
-    .discount-badge {
-      background: var(--accent);
-      color: white;
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
+    .bulk-price {
+      color: var(--primary);
       font-weight: 600;
+      margin-top: 0.5rem;
     }
 
     .product-description {
@@ -252,90 +250,6 @@
       color: var(--primary);
     }
 
-    /* Related Products */
-    .related-section {
-      margin-top: 4rem;
-    }
-
-    .section-title {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.8rem;
-      color: var(--primary);
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-
-    .related-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 2rem;
-    }
-
-    .related-card {
-      background: var(--card-bg);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: transform 0.3s;
-    }
-
-    .related-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .related-image {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .related-info {
-      padding: 1.2rem;
-    }
-
-    .related-title {
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .related-price {
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    /* Footer */
-    footer {
-      background: var(--card-bg);
-      padding: 3rem 1.5rem;
-      margin-top: 4rem;
-      text-align: center;
-    }
-
-    .footer-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin: 1.5rem 0;
-    }
-
-    .footer-link {
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    .footer-link:hover {
-      color: var(--primary);
-    }
-
-    .copyright {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
     /* Responsive */
     @media (max-width: 768px) {
       .product-grid {
@@ -350,69 +264,71 @@
       .features-grid {
         grid-template-columns: 1fr;
       }
-      
-      .thumbnail-container {
-        justify-content: center;
-      }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="product-header">
-      <a href="products.html" class="back-link">
+      <a href="index.html" class="back-link">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M19 12H5M12 19l-7-7 7-7"/>
         </svg>
-        Înapoi la produse
+        Înapoi la principală
       </a>
     </div>
 
     <div class="product-grid">
       <div class="gallery-container">
-        <img id="mainProductImage" class="main-image" src="assets/elfbar-grape.png" alt="ELF BAR Combo 25000">
+        <img id="mainProductImage" class="main-image" src="assets/elfbar-combo25000-watermelonstrawberry-66f13982c0f01.webp" alt="ELF BAR Combo 25000 - Watermelon Strawberry">
         <div class="thumbnail-container">
-          <img class="thumbnail active" src="assets/elfbar-grape.png" alt="Grape Ice" onclick="changeImage(this.src)">
-          <img class="thumbnail" src="assets/elfbar-bluerazz.png" alt="Blue Razz Ice" onclick="changeImage(this.src)">
-          <img class="thumbnail" src="assets/elfbar-mangopeach.png" alt="Mango Peach" onclick="changeImage(this.src)">
-          <img class="thumbnail" src="assets/elfbar-applepeach.png" alt="Apple Peach" onclick="changeImage(this.src)">
-          <img class="thumbnail" src="assets/elfbar-mojito.png" alt="Red Mojito" onclick="changeImage(this.src)">
-          <img class="thumbnail" src="assets/elfbar-pineapple.png" alt="Pineapple Ice" onclick="changeImage(this.src)">
+          <img class="thumbnail active" src="assets/elfbar-combo25000-watermelonstrawberry-66f13982c0f01.webp" alt="Watermelon Strawberry" onclick="changeImage(this.src, 'Watermelon & Strawberry 🍉🍓')">
+          <img class="thumbnail" src="assets/ElfBar_Combo25000_AppleJuicyPeach-1.png" alt="Apple Peach" onclick="changeImage(this.src, 'Apple & Juicy Peach 🍏🍑')">
+          <img class="thumbnail" src="assets/ElfBar_Combo25000_LimePineapple.webp" alt="Lime Pineapple" onclick="changeImage(this.src, 'Lime & Pineapple 🍋🍍')">
+          <img class="thumbnail" src="assets/ElfBar_Combo25000_GreenAppleDoubleAppleShisha.webp" alt="Double Apple" onclick="changeImage(this.src, 'Green Apple & Double Apple Shisha 🍏🍏')">
+          <img class="thumbnail" src="assets/ElfBar_Combo25000_BlueberrySourRaspberryCherry.webp" alt="Blueberry Cherry" onclick="changeImage(this.src, 'Blueberry Sour Raspberry & Cherry 🍒🫐')">
         </div>
       </div>
 
       <div class="product-info">
         <div>
           <h1 class="product-title">ELF BAR Combo 25000</h1>
-          <p class="product-subtitle">Disposable Vape Device</p>
+          <span class="highlight-badge">🔥 25000 fumuri + ecran digital</span>
         </div>
 
         <div class="price-container">
           <span class="current-price">399 MDL</span>
           <span class="old-price">499 MDL</span>
-          <span class="discount-badge">-20%</span>
         </div>
+        <p class="bulk-price">De la 2 bucăți: <strong>349 MDL/buc</strong></p>
 
         <p class="product-description">
-          ELF BAR Combo 25000 este dispozitivul premium de unică folosință cu cea mai lungă durată de viață. 
-          Cu o aromă intensă și consistentă, oferă până la 25000 de fumuri. Design ergonomic și ușor de utilizat, 
-          perfect pentru utilizatori care caută performanță și stil.
+          Dispozitiv premium de unică folosință cu cele mai populare 10 arome combinate. 
+          Cu ecran digital care afișează nivelul de baterie și e-lichid, oferă până la 25000 de fumuri intense.
         </p>
 
         <div class="variant-selector">
           <label for="flavor" class="variant-label">Selectează aroma:</label>
           <select id="flavor" class="variant-dropdown" onchange="updateMainImage()">
-            <option value="Grape Ice" data-image="assets/elfbar-grape.png">Grape Ice 🍇🧊</option>
-            <option value="Blue Razz Ice" data-image="assets/elfbar-bluerazz.png">Blue Razz Ice 🫐🍓🧊</option>
-            <option value="Mango Peach" data-image="assets/elfbar-mangopeach.png">Mango Peach 🥭🍑</option>
-            <option value="Apple Peach" data-image="assets/elfbar-applepeach.png">Apple Peach 🍎🍑</option>
-            <option value="Red Mojito" data-image="assets/elfbar-mojito.png">Red Mojito 🍸</option>
-            <option value="Pineapple Ice" data-image="assets/elfbar-pineapple.png">Pineapple Ice 🍍🧊</option>
+            <option value="Watermelon & Strawberry" data-image="assets/elfbar-combo25000-watermelonstrawberry-66f13982c0f01.webp">Watermelon & Strawberry 🍉🍓</option>
+            <option value="Apple & Juicy Peach" data-image="assets/ElfBar_Combo25000_AppleJuicyPeach-1.png">Apple & Juicy Peach 🍏🍑</option>
+            <option value="Lime & Pineapple" data-image="assets/ElfBar_Combo25000_LimePineapple.webp">Lime & Pineapple 🍋🍍</option>
+            <option value="Green Apple & Double Apple Shisha" data-image="assets/ElfBar_Combo25000_GreenAppleDoubleAppleShisha.webp">Green Apple & Double Apple Shisha 🍏🍏</option>
+            <option value="Blueberry Sour Raspberry & Cherry" data-image="assets/ElfBar_Combo25000_BlueberrySourRaspberryCherry.webp">Blueberry Sour Raspberry & Cherry 🍒🫐</option>
+            <option value="Blackcurrant Raspberry & Grape" data-image="assets/ElfBar_Combo25000_BlackurrantRaspberryGrape_.webp">Blackcurrant Raspberry & Grape 🍇</option>
+            <option value="Peach Mango & Watermelon" data-image="assets/ElfBar_Combo25000_PeachMangoWatermelon.webp">Peach Mango & Watermelon 🍑🥭</option>
+            <option value="Grape & Mary Drink" data-image="assets/elfbar-combo25000-grapemarypower-66f13978796af.webp">Grape & Mary Drink 🍇🍸</option>
+            <option value="Pink Lemonade & Grapefruit" data-image="assets/elfbar-combo25000-pinklemonadegrapefruit-66f1398143d76.webp">Pink Lemonade & Grapefruit 🍹🍋</option>
+            <option value="Green Grape & Grape" data-image="assets/ElfBar_Combo25000_GreenGrapeGrape.webp">Green Grape & Grape 🍇🌿</option>
           </select>
         </div>
 
-        <button class="cta-button" onclick="window.location.href='checkout.html'">
+        <button class="cta-button" onclick="addToCartAndRedirect()">
           Comandă acum - 399 MDL
+        </button>
+
+        <button class="cta-button" style="background: rgba(255,255,255,0.1); color: var(--primary); border: 2px solid var(--primary);" onclick="addToCart()">
+          🛒 Adaugă în coș
         </button>
 
         <div class="features-grid">
@@ -426,78 +342,31 @@
             <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/>
             </svg>
-            <span>Reîncărcare USB-C</span>
+            <span>Ecran digital</span>
           </div>
           <div class="feature-item">
             <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
             </svg>
-            <span>10 arome disponibile</span>
+            <span>10 arame premium</span>
           </div>
           <div class="feature-item">
             <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
             </svg>
-            <span>Pentru adulți 18+</span>
+            <span>Reîncărcare USB-C</span>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="related-section">
-      <h2 class="section-title">Produse similare</h2>
-      <div class="related-grid">
-        <a href="product-elfbar-bluerazz.html" class="related-card">
-          <img src="assets/elfbar-bluerazz.png" alt="Blue Razz Ice" class="related-image" loading="lazy">
-          <div class="related-info">
-            <h3 class="related-title">Blue Razz Ice</h3>
-            <p class="related-price">399 MDL</p>
-          </div>
-        </a>
-        <a href="product-elfbar-applepeach.html" class="related-card">
-          <img src="assets/elfbar-applepeach.png" alt="Apple Peach" class="related-image" loading="lazy">
-          <div class="related-info">
-            <h3 class="related-title">Apple Peach</h3>
-            <p class="related-price">399 MDL</p>
-          </div>
-        </a>
-        <a href="product-elfbar-mangopeach.html" class="related-card">
-          <img src="assets/elfbar-mangopeach.png" alt="Mango Peach" class="related-image" loading="lazy">
-          <div class="related-info">
-            <h3 class="related-title">Mango Peach</h3>
-            <p class="related-price">399 MDL</p>
-          </div>
-        </a>
-        <a href="product-elfbar-pineapple.html" class="related-card">
-          <img src="assets/elfbar-pineapple.png" alt="Pineapple Ice" class="related-image" loading="lazy">
-          <div class="related-info">
-            <h3 class="related-title">Pineapple Ice</h3>
-            <p class="related-price">399 MDL</p>
-          </div>
-        </a>
-      </div>
-    </div>
   </div>
 
-  <footer>
-    <div class="footer-content">
-      <div class="footer-links">
-        <a href="contact.html" class="footer-link">Contact</a>
-        <a href="termeni.html" class="footer-link">Termeni și condiții</a>
-        <a href="politica.html" class="footer-link">Politica de confidențialitate</a>
-        <a href="livrare.html" class="footer-link">Livrare și returnări</a>
-      </div>
-      <p class="copyright">© 2025 Triple6 Vape Shop. Toate drepturile rezervate.</p>
-    </div>
-  </footer>
-
   <script>
-    function changeImage(src) {
-      // Update main image
-      const mainImg = document.getElementById('mainProductImage');
-      mainImg.src = src;
+    // Schimbă imaginea principală și titlul la click pe thumbnail
+    function changeImage(src, flavorName) {
+      document.getElementById('mainProductImage').src = src;
       
-      // Update active thumbnail
+      // Actualizează thumbnail-urile active
       document.querySelectorAll('.thumbnail').forEach(thumb => {
         thumb.classList.remove('active');
         if (thumb.src === src) {
@@ -505,7 +374,7 @@
         }
       });
       
-      // Update dropdown to match selected image
+      // Actualizează dropdown-ul
       const dropdown = document.getElementById('flavor');
       const options = Array.from(dropdown.options);
       const matchingOption = options.find(opt => opt.dataset.image === src);
@@ -515,33 +384,87 @@
       }
     }
 
+    // Actualizează imaginea la schimbarea dropdown-ului
     function updateMainImage() {
       const dropdown = document.getElementById('flavor');
       const selectedOption = dropdown.options[dropdown.selectedIndex];
       const imageSrc = selectedOption.dataset.image;
       
-      // Update main image
       document.getElementById('mainProductImage').src = imageSrc;
       
-      // Update active thumbnail
+      // Actualizează thumbnail-ul activ
       document.querySelectorAll('.thumbnail').forEach(thumb => {
         thumb.classList.remove('active');
-        if (thumb.src === imageSrc) {
+        if (thumb.src.includes(imageSrc.split('/').pop())) {
           thumb.classList.add('active');
         }
       });
-      
-      // Update CTA button text
-      document.querySelector('.cta-button').textContent = `Comandă acum - ${document.querySelector('.current-price').textContent}`;
     }
 
-    // Initialize
+    // Funcție pentru butonul "Comandă acum"
+    function addToCartAndRedirect() {
+      const productName = "ELF BAR Combo 25000";
+      const productPrice = 399;
+      const selectedFlavor = document.getElementById('flavor').value;
+      const productImage = document.querySelector('#flavor option:checked').getAttribute('data-image');
+      
+      const productData = {
+        name: productName,
+        price: productPrice,
+        flavor: selectedFlavor,
+        image: productImage,
+        basePrice: productPrice,
+        quantity: 1
+      };
+      
+      localStorage.setItem('selectedProduct', JSON.stringify(productData));
+      window.location.href = 'checkout.html';
+    }
+
+    // Funcție pentru butonul "Adaugă în coș"
+    function addToCart() {
+      const productName = "ELF BAR Combo 25000";
+      const productPrice = 399;
+      const selectedFlavor = document.getElementById('flavor').value;
+      const productImage = document.querySelector('#flavor option:checked').getAttribute('data-image');
+      
+      const productData = {
+        name: productName,
+        price: productPrice,
+        flavor: selectedFlavor,
+        image: productImage,
+        basePrice: productPrice,
+        quantity: 1
+      };
+      
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push(productData);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      
+      alert(`Produsul "${productName} - ${selectedFlavor}" a fost adăugat în coș!`);
+      updateCartIcon();
+    }
+
+    // Funcție pentru actualizarea iconiței coșului
+    function updateCartIcon() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartIcon = document.querySelector('.cart-icon');
+      if (cartIcon) {
+        cartIcon.setAttribute('data-count', cart.length);
+      }
+    }
+
+    // Preîncarcă imaginile pentru o experiență mai bună
     document.addEventListener('DOMContentLoaded', () => {
-      // Preload images for better UX
       const thumbnails = document.querySelectorAll('.thumbnail');
       thumbnails.forEach(thumb => {
         new Image().src = thumb.src;
       });
+      
+      // Inițializează coșul dacă nu există
+      if (!localStorage.getItem('cart')) {
+        localStorage.setItem('cart', JSON.stringify([]));
+      }
     });
   </script>
 </body>
