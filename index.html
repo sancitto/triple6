@@ -359,6 +359,7 @@
         <a href="products.html" class="nav-link">Produse</a>
         <a href="#cum-comand" class="nav-link">Cum comand?</a>
         <a href="#contact" class="nav-link">Contact</a>
+        <a href="cart.html" class="nav-link">🛒 Coș</a>
       </nav>
     </div>
   </header>
@@ -500,6 +501,32 @@
         });
       });
     });
+  </script>
+  <script>
+    function addToCartItem(title, price) {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ title, price });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert("Produsul a fost adăugat în coș!");
+    }
+
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+            const product = this.closest('.product');
+            const productName = product.querySelector('h3').textContent;
+            const productPrice = product.querySelector('.price').textContent;
+            const productImage = product.querySelector('img').src;
+
+            localStorage.setItem('selectedProduct', JSON.stringify({
+                name: productName,
+                price: productPrice,
+                image: productImage
+            }));
+            alert('Produs adăugat în coș!');
+        });
+    });
+</script>
+
   </script>
 </body>
 </html>
