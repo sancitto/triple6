@@ -330,6 +330,26 @@
       margin-top: 0.5rem;
       user-select: none;
     }
+    .add-to-cart-button {
+      background: linear-gradient(135deg, #ff9100, #ff6d00);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(255, 109, 0, 0.4);
+      width: 100%;
+      margin-top: 0.8rem;
+    }
+
+    .add-to-cart-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 109, 0, 0.6);
+    }
   </style>
 </head>
 <body>
@@ -345,12 +365,12 @@
 
     <div class="product-grid">
       <div class="gallery-container">
-        <img id="mainProductImage" class="main-image" src="assets/elfbar-planet-baja.png" alt="ELF BAR Planet 25000 - Baja Splash">
+        <img id="mainProductImage" class="main-image" src="assets/Planet/Elfbar_Planet_BajaSplash.webp" alt="ELF BAR Planet 25000 - Baja Splash">
         <div class="thumbnail-container">
-          <img class="thumbnail active" src="assets/elfbar-planet-baja.png" alt="Baja Splash" onclick="changeImage(this.src, 'Baja Splash 🌈')">
-          <img class="thumbnail" src="assets/elfbar-planet-cranberry.png" alt="Cranberry Orange" onclick="changeImage(this.src, 'Cranberry Orange Baja Splash 🫐🍊')">
-          <img class="thumbnail" src="assets/elfbar-planet-watermelon.png" alt="Watermelon Cherry" onclick="changeImage(this.src, 'Watermelon Cherry 🍉🍒')">
-          <img class="thumbnail" src="assets/elfbar-planet-pineapple.png" alt="Pineapple Watermelon" onclick="changeImage(this.src, 'Pineapple Watermelon 🍍🍉')">
+          <img class="thumbnail active" src="assets/Planet/Elfbar_Planet_BajaSplash.webp" alt="Baja Splash" onclick="changeImage(this.src, 'Baja Splash 🌈')">
+          <img class="thumbnail" src="assets/Planet/Elfbar_Planet_CranberryOrangeBajaSplash.webp" alt="Cranberry Orange" onclick="changeImage(this.src, 'Cranberry Orange Baja Splash 🫐🍊')">
+          <img class="thumbnail" src="assets/Planet/Elfbar_Planet_LemonLime.webp" alt="Lemone Lime" onclick="changeImage(this.src, ' Lemon Lime 🍋 ')">
+          <img class="thumbnail" src="assets/Planet/Elfbar_Planet_PineappleWatermelon.webp" alt="Pineapple Watermelon" onclick="changeImage(this.src, 'Pineapple Watermelon 🍍🍉')">
         </div>
       </div>
 
@@ -361,10 +381,10 @@
         </div>
 
         <div class="price-container">
-          <span class="current-price">429 MDL</span>
-          <span class="old-price">499 MDL</span>
+          <span class="current-price">549 MDL</span>
+          <span class="old-price">669 MDL</span>
         </div>
-        <p class="bulk-price">De la 2 bucăți: <strong>399 MDL/buc</strong></p>
+       
 
         <p class="product-description">
           Seria Planet aduce 8 arome tropicale unice într-un dispozitiv cu design cosmic. 
@@ -374,7 +394,7 @@
         <div class="variant-selector">
           <label for="flavor" class="variant-label">Selectează aroma:</label>
           <select id="flavor" class="variant-dropdown" onchange="updateMainImage()">
-            <option value="Baja Splash" data-image="assets/elfbar-planet-baja.png">Baja Splash 🌈</option>
+            <option value="Baja Splash" data-image="assets/Planet/Elfbar_Planet_BajaSplash.webp">Baja Splash 🌈</option>
             <option value="Cranberry Orange Baja Splash" data-image="assets/elfbar-planet-cranberry.png">Cranberry Orange Baja Splash 🫐🍊</option>
             <option value="Watermelon Cherry" data-image="assets/elfbar-planet-watermelon.png">Watermelon Cherry 🍉🍒</option>
             <option value="Pineapple Watermelon" data-image="assets/elfbar-planet-pineapple.png">Pineapple Watermelon 🍍🍉</option>
@@ -385,9 +405,54 @@
           </select>
         </div>
 
-        <button class="cta-button" onclick="window.location.href='checkout.html'">
-          Comandă acum - 429 MDL
-        </button>
+       <button class="cta-button" onclick="addToCartAndRedirect('Elfbar Planet 25000', 549)">
+  Comandă acum - 549 MDL
+</button>
+
+<button class="add-to-cart-button" onclick="addToCart('Elfbar Planet 25000', 549)">
+  🛒 Adaugă în coș
+</button>
+
+<script>
+  // Funcție pentru butonul "Comandă acum"
+  function addToCartAndRedirect(productName, productPrice) {
+    localStorage.setItem('selectedProduct', JSON.stringify({
+      name: productName,
+      price: productPrice
+    }));
+    window.location.href = 'checkout.html';
+  }
+
+  // Funcție pentru butonul "Adaugă în coș"
+  function addToCart(productName, productPrice) {
+    // Obține coșul existent sau creează unul nou
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // Adaugă produsul în coș
+    cart.push({
+      name: productName,
+      price: productPrice
+    });
+    
+    // Salvează coșul în localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+    
+    // Afișează confirmare
+    alert('Produsul a fost adăugat în coș!');
+    
+    // Opțional: Actualizează iconița coșului din header
+    updateCartIcon();
+  }
+
+  // Funcție pentru actualizarea iconiței coșului (opțional)
+  function updateCartIcon() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartIcon = document.querySelector('.cart-icon');
+    if (cartIcon) {
+      cartIcon.setAttribute('data-count', cart.length);
+    }
+  }
+</script>
 
         <div class="features-grid">
           <div class="feature-item">
@@ -418,70 +483,52 @@
       </div>
     </div>
 
-    <!-- Added product card in a product offers section -->
-    <section id="oferte" style="margin-top: 3rem;">
-      <h2 style="color: var(--primary); font-family: 'Orbitron', sans-serif; margin-bottom: 1rem;">Oferte Speciale</h2>
-      <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
-        <a href="product-elfbar-planet25000.html" class="product-card">
-          <div class="product-card-image">
-            <img src="assets/elfbar-planet-baja.png" alt="ELF BAR Planet 25000">
-          </div>
-          <div class="product-card-info">
-            <h3 class="product-card-title">ELF BAR Planet 25000</h3>
-            <p class="product-card-price">429 MDL <span class="old-price">499 MDL</span></p>
-            <p class="product-card-description">8 arome tropicale, 25000 fumuri și ecran OLED.</p>
-            <span class="product-badge">🔥 Ofertă</span>
-          </div>
-        </a>
-      </div>
-    </section>
+  
 
-    <!-- Main product grid with Ice King and Planet 25000 (for visual parity with main grid on products.html) -->
-    <section class="products-grid" style="display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 3rem;">
-      <!-- Example: Ice King product card -->
-      <a href="product-elfbar-iceking.html" class="product-card">
-        <div class="product-card-image">
-          <img src="assets/elfbar-iceking.png" alt="ELF BAR Ice King">
-        </div>
-        <div class="product-card-info">
-          <h3 class="product-card-title">ELF BAR Ice King</h3>
-          <p class="product-card-price">399 MDL <span class="old-price">449 MDL</span></p>
-          <p class="product-card-description">Aromă intensă, până la 20000 fumuri.</p>
-          <span class="product-badge">❄️ Bestseller</span>
-        </div>
-      </a>
-      <!-- Inserted ELF BAR Planet 25000 next to Ice King -->
-      <a href="product-elfbar-planet25000.html" class="product-card">
-        <div class="product-card-image">
-          <img src="assets/elfbar-planet-baja.png" alt="ELF BAR Planet 25000">
-        </div>
-        <div class="product-card-info">
-          <h3 class="product-card-title">ELF BAR Planet 25000</h3>
-          <p class="product-card-price">429 MDL <span class="old-price">499 MDL</span></p>
-          <p class="product-card-description">8 arome tropicale, 25000 fumuri și ecran OLED.</p>
-          <span class="product-badge">🔥 Ofertă</span>
-        </div>
-      </a>
-    </section>
-  </div>
+<script>
+      // Funcție pentru butonul "Comandă acum"
+function addToCartAndRedirect() {
+  const productName = "ELF BAR Combo 25000";
+  const productPrice = 399;
+  const selectedFlavor = document.getElementById('flavor').value;
+  const productImage = document.querySelector('#flavor option:checked').getAttribute('data-image');
+  
+  const productData = {
+    name: productName,
+    flavor: selectedFlavor,
+    price: productPrice,
+    image: productImage,
+    basePrice: productPrice,
+    quantity: 1
+  };
+  
+  localStorage.setItem('selectedProduct', JSON.stringify(productData));
+  window.location.href = 'checkout.html';
+}
 
-  <script>
-    function changeImage(src, flavorName) {
-      document.getElementById('mainProductImage').src = src;
-      
-      document.querySelectorAll('.thumbnail').forEach(thumb => {
-        thumb.classList.remove('active');
-        if (thumb.src.includes(src.split('/').pop())) { // Match partial filename
-          thumb.classList.add('active');
-        }
-      });
-      
-      const dropdown = document.getElementById('flavor');
-      const options = Array.from(dropdown.options);
-      const matchingOption = options.find(opt => opt.dataset.image === src);
-      
-      if (matchingOption) dropdown.value = matchingOption.value;
-    }
+// Funcție pentru butonul "Adaugă în coș"
+function addToCart() {
+  const productName = "ELF BAR Combo 25000";
+  const productPrice = 399;
+  const selectedFlavor = document.getElementById('flavor').value;
+  const productImage = document.querySelector('#flavor option:checked').getAttribute('data-image');
+  
+  const productData = {
+    name: productName,
+    flavor: selectedFlavor,
+    price: productPrice,
+    image: productImage,
+    basePrice: productPrice,
+    quantity: 1
+  };
+  
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push(productData);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  
+  alert(`Produsul "${productName} (${selectedFlavor})" a fost adăugat în coș!`);
+  updateCartIcon();
+}
 
     function updateMainImage() {
       const dropdown = document.getElementById('flavor');
@@ -504,6 +551,11 @@
         new Image().src = thumb.src;
       });
     });
+
+    function addToCart() {
+      alert('Produsul a fost adăugat în coș! (funcționalitate demo)');
+      // Aici se poate integra un sistem real de coș sau stocare în localStorage/sessionStorage
+    }
   </script>
 </body>
 </html>
